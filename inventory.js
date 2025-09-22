@@ -21,22 +21,17 @@ console.log(inventory);
 //function to remove a product
 function removeProduct(id) {
 
-    let found = false; // checks if the product is found
 
     inventory.forEach((goods, index) => {
         if (goods.id === id) {
             inventory.splice(index, 1); // Remove 1 element at this index
-            found = true;
+            console.log(`Product with id ${id} removed successfully.`);
+        }else {
+            console.log("product not found")
         }
     });
-
-    if (!found) {
-        console.log("Product not found");
-    } else {
-        console.log(`Product with id ${id} removed successfully.`);
-    }
 }
-removeProduct(3);
+removeProduct(1);
 console.log(inventory)
 
 
@@ -60,6 +55,7 @@ function updateStock(id, quantity, name) {
 
 updateStock(4, 1, "Cap"); 
 
+
 //function to print the summary of our inventory
 function report () {
     let totalGoods  = inventory.length;
@@ -79,7 +75,7 @@ function report () {
 
     console.log("This is the inventory:", inventory);
     console.log("This is the ntotal number of goods:", totalGoods)
-    console.log("this is the list of low items:", lowStockItems);
+    console.log("this is the list of lowStock items:", lowStockItems);
     console.log("this the total quantity:", totalQuantity);
 };
 report();
