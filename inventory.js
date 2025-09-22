@@ -1,13 +1,15 @@
 const inventory = [];
+
 function addInventory (id, name, price, quantity) {
   let newProduct = {
     id: id,
     name: name,
     price: price,
     quantity: quantity,
-    lowStock: quantity < 10
+    // lowStock: quantity < 10;
   };
   inventory.push(newProduct);
+  
 }
 
 addInventory(1, "shoe", 2000, 10);
@@ -63,10 +65,12 @@ function report () {
     let totalGoods  = inventory.length;
     let lowStockItems = [];
     let totalQuantity = 0;
+    let lowStock = inventory.quantity < 10
 
     inventory.forEach((goods) => {
-        if (goods.lowstock) {
-            lowStockItems.push(goods.name);
+
+        if (goods.quantity < 10) {
+            lowStockItems.push(goods.name, goods.quantity);
         }
 
         totalQuantity += goods.quantity;
